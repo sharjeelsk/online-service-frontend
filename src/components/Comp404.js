@@ -2,7 +2,7 @@ import React from 'react'
 function Comp404() {
     return (
         <div>
-           not found
+           <h1>404 Not Found</h1>
         </div>
     )
 }

@@ -12,18 +12,48 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button'
 import Checkbox from '@mui/material/Checkbox';
+import Alert from '@mui/material/Alert'
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import date from 'date-and-time'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-function SelectTimeService() {
+import axios from 'axios'
+import {connect} from 'react-redux'
+function SelectTimeService(props) {
+    console.log(props)
     const [fromdate, setFromDate] = React.useState(null);
     const [fromTime, setFromTime] = React.useState(null);
     const [toTime,setToTime]=React.useState(null)
     const [subscription, setSubscription] = React.useState('');
+    const [error,setError]=React.useState("")
+    const [checked,setChecked]=React.useState(false)
 
     const handleChange = (event) => {
       setSubscription(event.target.value);
     };
+    const handleSubmit = ()=>{
+        if(!fromdate || !fromTime || !toTime || subscription===''){
+            setError("you are missing something, crosscheck the data")
+        }else{
+            let fromtime = date.format(fromTime, 'HH:mm:ss');
+            let fromDate = date.format(fromdate, 'DD/MM/YYYY');
+            let totime = date.format(toTime, 'HH:mm:ss');
+            let Data = props.location.state;
+
+            console.log(fromtime,fromDate,totime,subscription,checked,Data);
+            axios.post(`${process.env.REACT_APP_DEVELOPMENT}/api/service/addservice`,{name:Data.formOneData.serviceName,startDate:fromDate,fromtime,totime,hirejanitor:checked,janitors:Data.janitors,workdescription:Data.description,location:Data.formOneData.location,address1:Data.formOneData.data.address,address2:Data.formOneData.data.address1,subscription:subscription===1?"Weekly Subscription":"Monthly Subscription"},{headers:{token:props.user.user}})
+            .then(res=>{
+                console.log(res);
+                props.history.push("selectservice")
+            })
+            .catch(err=>{
+                console.log(err.response);
+                if(err.response.status===400){
+                    setError("Service already added")
+                }
+            })
+        }
+    }
     return (
         <div>
              <h1 className="no-more-excuses">No<br />More<br />Excuses</h1>
@@ -39,7 +69,9 @@ function SelectTimeService() {
 
                     <div className='mt-5'>
                     <DatePicker
+                        inputFormat="dd/MM/yyyy"
                         label="From date"
+                        minDateTime={new Date(Date.now())}
                         value={fromdate}
                         onChange={(newValue) => {
                             setFromDate(newValue);
@@ -89,14 +121,14 @@ function SelectTimeService() {
                         </FormControl>
 
                     <FormGroup className="mt-3">
-                    <FormControlLabel control={<Checkbox  />} label="Hire janitor just for a day" />
+                    <FormControlLabel control={<Checkbox onChange={()=>setChecked(!checked)}  />} label="Hire janitor just for a day" />
                     </FormGroup>
                         
                     <div className="mt-4" style={{textAlign:"right"}}>
-                    <Button endIcon={<NavigateNextIcon />} variant="text">Submit</Button>
+                    <Button onClick={()=>handleSubmit()} endIcon={<NavigateNextIcon />} variant="text">Submit</Button>
                     </div>
 
-
+                    {error.length>0?<Alert className="alert" severity="error">{error}</Alert>:null}
                     </div>
 
 
@@ -108,4 +140,10 @@ function SelectTimeService() {
     )
 }
 
-export default SelectTimeService
+const mapStateToProps = ({EventUser})=>{
+return {
+    user:EventUser
+}
+}
+
+export default connect(mapStateToProps)(SelectTimeService)

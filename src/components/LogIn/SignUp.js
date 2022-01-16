@@ -45,7 +45,9 @@ function SignUp(props) {
                 <TextField error={errors.email?true:false} {...register('email',{required:true})} className="mt-4" fullWidth id="outlined-basic" label="Email" variant="outlined" />
                 <TextField error={errors.password?true:false} {...register('password',{required:true})} className="mt-4" fullWidth id="outlined-basic" label="Password" variant="outlined" />
                 <TextField error={errors.confirmpassword?true:false} {...register('confirmpassword',{required:true})} className="mt-4" fullWidth id="outlined-basic" label="Confirm Password" variant="outlined" />
-
+                <div style={{textAlign:"right"}} className="mt-3">
+                    <Button onClick={()=>props.history.push("/login")}>LogIn instead</Button>
+                </div>
                 
                 <div style={{textAlign:"center"}} className="mt-5">
                 <Button type="submit" className="mybtn" variant="contained">SignUp</Button>
@@ -62,4 +64,4 @@ const mapDispatchToProps = (dispatch)=>{
     }
 }
 
-export default connect(mapDispatchToProps)(SignUp)
+export default connect(null,mapDispatchToProps)(SignUp)

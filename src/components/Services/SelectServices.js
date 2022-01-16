@@ -11,6 +11,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import TextField from '@mui/material/TextField'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import {useForm} from 'react-hook-form'
+import Alert from '@mui/material/Alert'
 function SelectServices(props) {
     const [serviceName,setServiceName]=React.useState("")
     const [location,setLocation]=React.useState({lat:"",lng:""})
@@ -32,6 +33,12 @@ function SelectServices(props) {
 
       const onSubmit = (data)=>{
         console.log(data);
+        if(serviceName==="" || location.lat===""){
+          setError("you are missing something, crosscheck the data")
+        }else{
+          setError("")
+          props.history.push("/describeservice",{formOneData:{data,location,serviceName}})
+        }
       }
       
 
@@ -71,11 +78,12 @@ function SelectServices(props) {
 
                     {location.lat===""?<Button onClick={()=>getGeo()} startIcon={<LocationOnIcon />} className="my-3">Select Current location</Button>:<Button disabled onClick={()=>getGeo()} startIcon={<LocationOnIcon />} className="my-3">Current location selected</Button>}
                     <form onSubmit = {handleSubmit(onSubmit)}>
-                    <TextField {...register('address',{required:true})} className="tf" fullWidth id="outlined-basic" variant="outlined" label="Enter address" />
-                    <TextField {...register('address1',{required:true})} className="tf" fullWidth id="outlined-basic" variant="outlined" label="Enter second address (optional)" />
+                    <TextField error={errors.address?true:false} {...register('address',{required:true})} className="tf" fullWidth id="outlined-basic" variant="outlined" label="Enter address" />
+                    <TextField {...register('address1')} className="tf" fullWidth id="outlined-basic" variant="outlined" label="Enter second address (optional)" />
                     <div className="mt-2" style={{textAlign:"right"}}>
                     <Button type="submit" endIcon={<NavigateNextIcon />}>Next</Button>
                     </div>
+                    {error.length>0?<Alert className="alert" severity="error">{error}</Alert>:null}
                     </form>
                  </div>
              </div>

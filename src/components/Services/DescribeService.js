@@ -7,15 +7,23 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button'
+import Alert from '@mui/material/Alert'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 function DescribeService(props) {
     const [janitors, setJanitors] = React.useState('');
-
+    const [description,setDescription]=React.useState("")
+    const [error,setError]=React.useState("")
+    console.log(props)
     const handleChange = (event) => {
       setJanitors(event.target.value);
     };
     const handleSubmit = ()=>{
-        props.history.push("selecttimeservice")
+        if(description==="" ||janitors===""){
+            setError("you are missing something, crosscheck the data")
+        }else{
+            props.history.push("selecttimeservice",{formOneData:props.location.state.formOneData,description,janitors})
+
+        }
     }
     return (
         <div>
@@ -34,6 +42,7 @@ function DescribeService(props) {
                         rows={4}
                         sx={{width:"30%"}}
                         className="tf"
+                        onChange={(e)=>setDescription(e.target.value)}
                         />
 
                 <div className="selection">
@@ -43,7 +52,7 @@ function DescribeService(props) {
                         labelid="demo-simple-select-filled-label"
                         id="demo-simple-select-filled"
                         value={janitors}
-                        label="janitors"
+                        label="Select Janitors"
                         onChange={handleChange}
                         >
                         <MenuItem value={1}>1</MenuItem>
@@ -56,7 +65,7 @@ function DescribeService(props) {
                 <div className="btn-div">
                 <Button endIcon={<NavigateNextIcon />} onClick={()=>handleSubmit()} className="btn">Next</Button>
                 </div>
-
+                {error.length>0?<Alert className="alert" severity="error">{error}</Alert>:null}
 
                 </div>
 
