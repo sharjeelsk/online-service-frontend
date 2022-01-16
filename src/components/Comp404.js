@@ -1,11 +1,10 @@
 import React from 'react'
-import "./Home.scss"
-function Home() {
+function Comp404() {
     return (
         <div>
-           hello
+           not found
         </div>
     )
 }
 
-export default Home
+export default Comp404

@@ -1,0 +1,13 @@
+<svg id="Component_47_1" data-name="Component 47 – 1" xmlns="http://www.w3.org/2000/svg" width="354.19" height="474.975" viewBox="0 0 354.19 474.975">
+  <text id="Select_Service_" data-name="Select Service     " transform="translate(59.19 23.631)" font-size="26" font-family="Bahnschrift" letter-spacing="0.028em"><tspan x="0" y="0" xml:space="preserve">Select Service     </tspan></text>
+  <text id="Explain_Your_Work" data-name="Explain Your Work" transform="translate(59.19 250.131)" font-size="26" font-family="Bahnschrift" letter-spacing="0.028em"><tspan x="0" y="0">Explain Your Work</tspan></text>
+  <text id="Select_time_for_service_" data-name="Select time for service  " transform="translate(59.19 467.369)" font-size="26" font-family="Bahnschrift" letter-spacing="0.028em" opacity="0.5"><tspan x="0" y="0" xml:space="preserve">Select time for service  </tspan></text>
+  <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="17.099" cy="16.442" rx="17.099" ry="16.442" fill="#c73535"/>
+  <ellipse id="Ellipse_7" data-name="Ellipse 7" cx="17.099" cy="16.442" rx="17.099" ry="16.442" transform="translate(0 226.5)" fill="#c73535"/>
+  <ellipse id="Ellipse_3" data-name="Ellipse 3" cx="17.099" cy="16.442" rx="17.099" ry="16.442" transform="translate(0.658 442.092)" fill="#c2c2c2"/>
+  <text id="_1" data-name="1" transform="translate(13.153 23.631)" fill="#fff" font-size="26" font-family="Bahnschrift" letter-spacing="0.028em"><tspan x="0" y="0">1</tspan></text>
+  <text id="_2" data-name="2" transform="translate(11.153 251.131)" fill="#fff" font-size="26" font-family="Bahnschrift" letter-spacing="0.028em"><tspan x="0" y="0">2</tspan></text>
+  <text id="_3" data-name="3" transform="translate(11.18 467.038)" font-size="26" font-family="Bahnschrift" letter-spacing="0.028em" opacity="0.38"><tspan x="0" y="0">3</tspan></text>
+  <line id="Line_1" data-name="Line 1" y2="161" transform="translate(123.5 42.5)" fill="none" stroke="#e8e8e8" stroke-width="3"/>
+  <line id="Line_1-2" data-name="Line 1" y2="161" transform="translate(123.5 271.5)" fill="none" stroke="#e8e8e8" stroke-width="3"/>
+</svg>
