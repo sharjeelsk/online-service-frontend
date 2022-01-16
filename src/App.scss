@@ -18,7 +18,9 @@ p{
 .svg{
   width: 90%;
 }
-
+.svgmob{
+  display: none;
+}
 
 ::-webkit-scrollbar{
   width:5px !important;
@@ -54,5 +56,16 @@ p{
     z-index: 5;
     left: 0%;
   }
+  .svg{
+    display: none;
+  }
+  .svgmob{
+    width: 90vw;
+    height: 10vh;
+    display: block;
+  }
   
+.imgauth{
+  width: 35vw;
+}
 }

@@ -1,0 +1,21 @@
+<svg id="Component_50_1" data-name="Component 50 – 1" xmlns="http://www.w3.org/2000/svg" width="404.651" height="30" viewBox="0 0 404.651 30">
+  <text id="Select_Service_" data-name="Select Service     " transform="translate(17.375 9.903)" font-size="10" font-family="Bahnschrift" letter-spacing="0.028em"><tspan x="0" y="0" xml:space="preserve">Select Service     </tspan></text>
+  <text id="Explain_Your_Work" data-name="Explain Your Work" transform="translate(158.938 10.767)" font-size="10" font-family="Bahnschrift" letter-spacing="0.028em"><tspan x="0" y="0">Explain Your Work</tspan></text>
+  <g id="Component_49_1" data-name="Component 49 – 1">
+    <ellipse id="Ellipse_1" data-name="Ellipse 1" cx="6.3" cy="6.134" rx="6.3" ry="6.134" fill="#c73535"/>
+    <text id="_1" data-name="1" transform="translate(4.688 7.973)" fill="#fff" font-size="7" font-family="Bahnschrift" letter-spacing="0.028em"><tspan x="0" y="0">1</tspan></text>
+  </g>
+  <g id="Component_49_2" data-name="Component 49 – 2" transform="translate(137.268 0.769)">
+    <ellipse id="Ellipse_1-2" data-name="Ellipse 1" cx="6.3" cy="6.134" rx="6.3" ry="6.134" fill="#c73535"/>
+    <text id="_2" data-name="2" transform="translate(4.688 7.973)" fill="#fff" font-size="7" font-family="Bahnschrift" letter-spacing="0.028em"><tspan x="0" y="0">2</tspan></text>
+  </g>
+  <g id="Component_49_3" data-name="Component 49 – 3" transform="translate(303.364 0.498)">
+    <ellipse id="Ellipse_1-3" data-name="Ellipse 1" cx="6.3" cy="6.134" rx="6.3" ry="6.134" fill="#c73535"/>
+    <text id="_3" data-name="3" transform="translate(4.688 7.973)" fill="#fff" font-size="7" font-family="Bahnschrift" letter-spacing="0.028em"><tspan x="0" y="0">3</tspan></text>
+  </g>
+  <line id="Line_1" data-name="Line 1" x2="26.75" transform="translate(96.375 7.134)" fill="none" stroke="#e8e8e8" stroke-width="3"/>
+  <line id="Line_4" data-name="Line 4" y1="0.343" x2="31.142" transform="translate(258.081 7.125)" fill="none" stroke="#e8e8e8" stroke-width="3"/>
+  <text id="Select_time_and_subscription_for_service_" data-name="Select time and 
+subscription
+ for service  " transform="translate(327.651 8)" font-size="10" font-family="Bahnschrift" letter-spacing="0.028em"><tspan x="0" y="0">Select time and </tspan><tspan x="0" y="10">subscription</tspan><tspan x="0" y="20" xml:space="preserve"> for service  </tspan></text>
+</svg>

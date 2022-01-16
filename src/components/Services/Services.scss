@@ -42,3 +42,62 @@
         width: 30%;
     }
 }
+
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+
+}
+@media (max-width: 576px) {
+    .svgcol{
+        margin: 0 5%;
+    }
+    .servcol{
+        text-align: center;
+        padding:1% 3%;
+        h1{
+            font-size: 2.5em;
+        }
+        .radiogroup{
+            margin-top: 5%;
+            font-size: 3em;
+            .formlabel{
+                font-size: 3em;
+                margin:auto;
+            }
+        }
+        form{
+            width: 80%;
+            margin: 2% auto;
+            .tf{
+                margin:4% 0;
+            }
+        }
+    }
+
+    .describeservice{
+        .tf{
+            margin-top: 2%;
+            width: 80% !important;
+        }
+        .selection{
+            width: 80%;
+            margin: 5% auto;
+           .btn-div{
+               text-align: right;
+            margin-top: 5%;
+           }
+        }
+    
+    }
+    
+.selecttimedate{
+    .subs-div{
+        margin: 8% auto;
+        width: 60%;
+
+    }
+}
+}

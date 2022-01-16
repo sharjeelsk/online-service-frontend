@@ -1,5 +1,6 @@
 import React from 'react'
 import {ReactComponent as Stepper} from '../images/Component 46 – 2.svg'
+import {ReactComponent as StepperMobile} from '../images/Component 50 – 1.svg'
 import "./Services.scss"
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
@@ -28,12 +29,13 @@ function DescribeService(props) {
     return (
         <div>
              <h1 className="no-more-excuses">No<br />More<br />Excuses</h1>
-             <div className="row mx-5">
-                 <div className="col-3 svgcol">
+             <div className="row">
+                 <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 svgcol">
                     <Stepper className="svg" />
+                    <StepperMobile className="svgmob" />
                  </div>
 
-                 <div className="col-9 servcol describeservice">
+                 <div className="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-9 servcol describeservice">
                     <h1>Describe Service</h1>
                     <TextField
                         id="outlined-multiline-static"
