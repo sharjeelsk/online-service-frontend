@@ -19,6 +19,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import date from 'date-and-time'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import axios from 'axios'
+import SimpleBackdrop from '../SimpleBackdrop';
 import {connect} from 'react-redux'
 function SelectTimeService(props) {
     console.log(props)
@@ -28,26 +29,38 @@ function SelectTimeService(props) {
     const [subscription, setSubscription] = React.useState('');
     const [error,setError]=React.useState("")
     const [checked,setChecked]=React.useState(false)
-
+    const [loading,setLoading]=React.useState(false)
     const handleChange = (event) => {
       setSubscription(event.target.value);
     };
+    const renderSubscription=() =>{
+        if(subscription===1){
+            return "Weekly subscription"
+        }else if(subscription===2){
+            return "Monthly subscription"
+        }else{
+            return "Hire janitor for a day"
+        }
+    }
     const handleSubmit = ()=>{
         if(!fromdate || !fromTime || !toTime || subscription===''){
             setError("you are missing something, crosscheck the data")
         }else{
+            setLoading(true)
             let fromtime = date.format(fromTime, 'HH:mm:ss');
             let fromDate = date.format(fromdate, 'DD/MM/YYYY');
             let totime = date.format(toTime, 'HH:mm:ss');
             let Data = props.location.state;
 
             console.log(fromtime,fromDate,totime,subscription,checked,Data);
-            axios.post(`${process.env.REACT_APP_DEVELOPMENT}/api/service/addservice`,{name:Data.formOneData.serviceName,startDate:fromDate,fromtime,totime,hirejanitor:checked,janitors:Data.janitors,workdescription:Data.description,location:Data.formOneData.location,address1:Data.formOneData.data.address,address2:Data.formOneData.data.address1,subscription:subscription===1?"Weekly Subscription":"Monthly Subscription"},{headers:{token:props.user.user}})
+            axios.post(`${process.env.REACT_APP_DEVELOPMENT}/api/service/addservice`,{name:Data.formOneData.serviceName,startDate:fromDate,fromtime,totime,hirejanitor:checked,janitors:Data.janitors,workdescription:Data.description,location:Data.formOneData.location,address1:Data.formOneData.data.address,address2:Data.formOneData.data.address1,subscription:renderSubscription()},{headers:{token:props.user.user}})
             .then(res=>{
+                setLoading(false)
                 console.log(res);
                 props.history.push("selectservice")
             })
             .catch(err=>{
+                setLoading(false)
                 console.log(err.response);
                 if(err.response.status===400){
                     setError("Service already added")
@@ -57,6 +70,7 @@ function SelectTimeService(props) {
     }
     return (
         <div>
+             <SimpleBackdrop open={loading} />
              <h1 className="no-more-excuses">No<br />More<br />Excuses</h1>
              <div className="row">
                  <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 svgcol">
@@ -119,12 +133,13 @@ function SelectTimeService(props) {
                             >
                             <MenuItem value={1}>Weekly Subscription</MenuItem>
                             <MenuItem value={2}>Monthly Subscription</MenuItem>
+                            <MenuItem value={3}>Hire janitor for a day</MenuItem>
                             </Select>
                         </FormControl>
 
-                    <FormGroup className="mt-3">
+                    {/* <FormGroup className="mt-3">
                     <FormControlLabel control={<Checkbox onChange={()=>setChecked(!checked)}  />} label="Hire janitor just for a day" />
-                    </FormGroup>
+                    </FormGroup> */}
                         
                     <div className="mt-4" style={{textAlign:"right"}}>
                     <Button onClick={()=>handleSubmit()} endIcon={<NavigateNextIcon />} variant="text">Submit</Button>

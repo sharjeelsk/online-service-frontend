@@ -13,6 +13,8 @@ import TextField from '@mui/material/TextField'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import {useForm} from 'react-hook-form'
 import Alert from '@mui/material/Alert'
+import axios from 'axios'
+import Footer from '../Footer/Footer'
 function SelectServices(props) {
     const [serviceName,setServiceName]=React.useState("")
     const [location,setLocation]=React.useState({lat:"",lng:""})
@@ -42,6 +44,8 @@ function SelectServices(props) {
           props.history.push("/describeservice",{formOneData:{data,location,serviceName}})
         }
       }
+
+      
       
 
     return (
@@ -90,6 +94,7 @@ function SelectServices(props) {
                     </form>
                  </div>
              </div>
+             <Footer />
         </div>
     )
 }

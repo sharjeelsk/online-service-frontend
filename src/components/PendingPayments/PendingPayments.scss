@@ -1,0 +1,21 @@
+@import  "../../App.scss";
+
+.pendingpy{
+    h1{
+        text-align: center;
+        padding-top: 1%;
+    }
+    .pendingcont{
+        margin:2% 30%;
+        .pending-card{
+            background-color: #f7f7f7;
+            padding:2%;
+            margin: 5% 0;
+            font-size: 1.2em;
+            .btn{
+                margin-left: auto;
+            }
+        }
+    }
+    
+}

@@ -1,0 +1,19 @@
+@import  "../../App.scss";
+
+.blogin{
+    h1{
+        text-align: center;
+        padding-top: 5%;
+    }
+    form{
+        margin: 0% 35%;
+        text-align: center;
+        .textfield{
+            margin-top: 8%;
+        }
+        .bt{
+            margin-top: 5%;
+            padding:1% 8%;
+        }
+    }
+}

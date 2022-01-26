@@ -1,0 +1,19 @@
+@import  "../../App.scss";
+
+
+.footer {
+    background-color: $primary;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    padding:.5% 2%;
+    .fcol{
+        padding:0 1%;
+        h3{
+            color: white !important;
+        }
+    }
+  }
