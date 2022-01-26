@@ -13,3 +13,26 @@
         font-size: 1.2em;
     }
 }
+
+@media (max-width: 992px) {
+
+}
+@media (max-width: 768px) {
+
+
+}
+@media (max-width: 576px) {
+    .aboutUs{
+        h1{
+            text-align: center;
+            padding-top: 2%;
+        }
+        p{
+            text-align: center;
+            width: 80%;
+            line-height: 2;
+            margin:1% auto;
+            font-size: 1em;
+        }
+    }
+}
